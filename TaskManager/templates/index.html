@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+       <div>
+        <p>Dont Have Account Register First</p> <button> <a href="{% url 'register' %}"> Register </a> </button> 
+       </div>
+  
+    <h1> DATA LIST </h1>
+    <table border="1" >
+        <tr>
+            <td> Name </td>
+            <td> Email </td>
+            <td> Mobile </td>
+            <td> Task </td>
+            <td> Status </td>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td> {{i.Name}} </td>
+            <td> {{i.Email}} </td>
+            <td> {{i.Mobile}} </td>
+            <td> {{i.taskss}} </td>
+            <td> {{i.taskss.Task_Type}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+{{name}}
+{{email}}
+{{mobile}}
+
+</body>
+</html>
