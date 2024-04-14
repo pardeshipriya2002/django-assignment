@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple App : Add Task</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">     
+</head>
+<body>
+    <div id="head">
+        <h1>Add Task for {{ user.name }}</h1>
+    </div>
+    <div id="navbar">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'add_user' %}">Add User</a>
+        <a href="{% url 'export_data' %}">Export Data</a>
+    </div>
+    <div id="uadd">    
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="task_Assign" value="{{ user.userId }}">
+        <label for="taskdetail">Task Detail:</label>
+        <input type="text" id="taskdetail" name="taskdetail" required><br><br>
+        <label for="tasktype">Task Type:</label>
+        <select id="tasktype" name="tasktype" required>
+            <option value="Pending">Pending</option>
+            <option value="Done">Done</option>
+        </select><br><br>
+        <button type="submit">Add Task</button>
+    </form>
+    </div>
+</body>
+</html>
